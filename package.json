@@ -19,5 +19,9 @@
   "bugs": {
     "url": "https://github.com/RyanCopley/AwesomeCI/issues"
   },
-  "homepage": "https://github.com/RyanCopley/AwesomeCI#readme"
+  "homepage": "https://github.com/RyanCopley/AwesomeCI#readme",
+  "dependencies": {
+    "body-parser": "^1.12.4",
+    "express": "^4.12.4"
+  }
 }
