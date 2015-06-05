@@ -1,0 +1,23 @@
+{
+  "name": "awesome-ci",
+  "version": "0.0.1",
+  "description": "Free and Open Source, Earthly CI Server",
+  "main": "awesome.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RyanCopley/AwesomeCI.git"
+  },
+  "keywords": [
+    "awesome",
+    "ci"
+  ],
+  "author": "Ryan Copley",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/RyanCopley/AwesomeCI/issues"
+  },
+  "homepage": "https://github.com/RyanCopley/AwesomeCI#readme"
+}

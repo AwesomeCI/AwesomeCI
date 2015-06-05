@@ -1,0 +1,22 @@
+{
+  "name": "AwesomeCI",
+  "version": "0.0.1",
+  "homepage": "https://github.com/RyanCopley/AwesomeCI",
+  "authors": [
+    "Ryan Copley <github@ryancopley.com>"
+  ],
+  "description": "Free and Open Source, Earthly CI Server",
+  "main": "awesome.js",
+  "keywords": [
+    "awesome",
+    "ci"
+  ],
+  "license": "Apache-2.0",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
