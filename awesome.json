@@ -1,0 +1,10 @@
+{
+    "theme" : "piluku",
+    "db" : {
+        "connection" : "sqlite://db.sqlite"
+    },
+    "slave" : {
+        "active" : false,
+        "master" : "127.0.0.1"
+    }
+}

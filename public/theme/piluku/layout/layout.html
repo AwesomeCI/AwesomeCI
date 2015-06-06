@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="AwesomeCI">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
+    <title>AwesomeCI</title>
+    <link rel='stylesheet' href='/libs/bootstrap/dist/css/bootstrap.min.css'>
+    <link rel='stylesheet' href='/libs/materialize/dist/css/materialize.min.css'>
+    <link rel='stylesheet' href='/libs/angular-loading-bar/build/loading-bar.min.css'>
+
+    <link rel='stylesheet' href='/theme/piluku/assets/css/style.css'>
+    <link rel='stylesheet' href='/theme/piluku/assets/css/animated-masonry-gallery.css'>
+    <link rel='stylesheet' href='/theme/piluku/assets/css/sweet-alerts/sweetalert.css'>
+    <link rel='stylesheet' href='/theme/piluku/assets/css/jtree.css'>
+</head>
+
+<body>
+    <div class="piluku-preloader text-center" ng-if="false">
+        <div class="loader">Loading...</div>
+    </div>
+    <div class="wrapper">
+
+
+        <div class="left-bar">
+            <div class="admin-logo">
+                <div class="logo-holder pull-left">
+                    Awesome CI
+                </div>
+            </div>
+            <!-- admin-logo -->
+            <ul class="list-unstyled menu-parent" id="mainMenu" ng-controller="DrawerController">
+                <li>
+                    <a href="/#/dashboard">
+                        <i class="icon ti-home"></i>
+                        <span class="text ">Dashboard</span>
+                    </a>
+                </li>
+                <li class="submenu">
+                    <a href="">
+                        <i class="icon ti-rocket"></i>
+                        <span class="text">Jobs</span>
+                        <i class="chevron ti-angle-right"></i>
+                    </a>
+                    <ul class="list-unstyled">
+                        <li ng-repeat="job in jobs"><a href="/#/jobs/{{job.name}}">{{job.name}}</a></li>
+                    </ul>
+                </li>
+                <li class="submenu">
+                    <a href="/#/settings">
+                        <i class="icon ti-settings"></i>
+                        <span class="text">Settings</span>
+                        <i class="chevron ti-angle-right"></i>
+                    </a>
+                    <ul class="list-unstyled">
+                        <li><a href="/#/settings/manage/account">Manage Accounts</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <!-- left-bar -->
+
+        <div class="content" id="content">
+
+            <div class="overlay"></div>
+
+            <div class="top-bar">
+                <nav class="navbar navbar-default top-bar">
+                    <div class="menu-bar-mobile" id="open-left"><i class="ti-menu" style="color: rgb(64,64,64);"></i>
+                    </div>
+                    <ul class="nav navbar-nav navbar-right top-elements">
+                        <li class="piluku-dropdown dropdown piluku-dropdown-btn">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="ion-ios-bell-outline icon-notification"></i><span class="badge info-number message">22</span></a>
+                            <ul class="dropdown-menu dropdown-piluku-menu  animated fadeInUp wow notification-drop neat_drop dropdown-right" data-wow-duration="1500ms" role="menu">
+                                <li>
+                                    <a href="profile.html">
+                                        <div class="hexagon danger">
+                                            <span><i class="ion-ios-alarm-outline"></i></span>
+                                        </div>
+                                        <span class="text_info"> Privacy settings have been changed</span>
+                                        <span class="time_info">3:30am</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="profile.html">
+                                        <div class="hexagon success">
+                                            <span><i class="ion-ios-body-outline"></i></span>
+                                        </div>
+                                        <span class="text_info"> Tim has added you as friend</span>
+                                        <span class="time_info">4:30am</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="profile.html">
+                                        <div class="hexagon warning">
+                                            <span><i class="ion-ios-cart-outline"></i></span>
+                                        </div>
+                                        <span class="text_info"> New item added</span>
+                                        <span class="time_info">6:07am</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="profile.html">
+                                        <div class="hexagon info">
+                                            <span><i class="ion-ios-calendar-outline"></i></span>
+                                        </div>
+                                        <span class="text_info"> reminder please complete the task</span>
+                                        <span class="time_info">3:30pm</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="profile.html">
+                                        <div class="outline-hexagon">
+                                            <span><i class="ion-ios-checkmark-outline"></i></span>
+                                        </div>
+                                        <span class="text_info"> Marked as complete</span>
+                                        <span class="time_info">1:30pm</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="profile.html" class="last_info">See all notifications</a>
+                                </li>
+
+                            </ul>
+                        </li>
+                        
+                        <li class="piluku-dropdown dropdown">
+                            <!-- @todo Change design here, its bit of odd or not upto usable -->
+
+                            <a href="#" class="dropdown-toggle avatar_width" data-toggle="dropdown" role="button" aria-expanded="false"><span class="avatar-holder"><img src="https://pbs.twimg.com/profile_images/587418122497458177/qMvw61JP.jpg" alt=""></span><span class="avatar_info">Ryan Copley</span><span class="drop-icon"><!-- <i class="ion ion-chevron-down"></i> --></span></a>
+                            <ul class="dropdown-menu dropdown-piluku-menu  animated fadeInUp wow avatar_drop neat_drop dropdown-right" data-wow-duration="1500ms" role="menu">
+                                <li>
+                                    <a href="profile.html"> <i class="ion-android-settings"></i>Settings</a>
+                                </li>
+                                <li>
+                                    <a href="mailbox.html"> <i class="ion-android-chat"></i>Messages</a>
+                                </li>
+                                <li>
+                                    <a href="dropzone-file-upload.html"> <i class="ion-android-cloud-circle"></i>Upload</a>
+                                </li>
+                                <li>
+                                    <a href="profile.html"> <i class="ion-android-create"></i>Edit profile</a>
+                                </li>
+                                <li>
+                                    <a href="lock-screen.html" class="logout_button"><i class="ion-power"></i>Logout</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="chat_btn">
+                            <a href="#" class="right-bar-toggle flatRed">
+                                <i class="ion-hammer"></i>
+                            </a>
+                        </li>
+                    </ul>
+
+                </nav>
+
+            </div>
+            <!-- /top-bar -->
+
+            <div ng-controller="MainContentController">
+                <div ng-view></div>
+            </div>
+        </div>
+
+        <div class="side-bar right-bar ">
+
+        </div>
+        <!-- /Right-bar -->
+    </div>
+    <!-- wrapper -->
+
+    <script type="text/javascript" src="/libs/jquery/dist/jquery.js"></script>
+    <script type="text/javascript" src="/libs/angular/angular.min.js"></script>
+    <script type="text/javascript" src="/libs/angular-route/angular-route.min.js"></script>
+    <script type="text/javascript" src="/libs/angular-animate/angular-animate.js"></script>
+    <script type="text/javascript" src="/libs/angular-loading-bar/build/loading-bar.min.js"></script>
+    <script type="text/javascript" src="/libs/angular-sanitize/angular-sanitize.min.js"></script>
+
+    <script type="text/javascript" src="/libs/moment/min/moment.min.js"></script>
+    <script type="text/javascript" src="/libs/jquery-ui/ui/minified/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="/libs/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/libs/jquery.nicescroll/dist/jquery.nicescroll.min.js"></script>
+    <script type="text/javascript" src="/libs/materialize/dist/js/materialize.min.js"></script>
+
+    <script type="text/javascript" src="/app/Awesome.js"></script>
+
+    <script src='/theme/piluku/assets/js/jquery.loadmask.min.js'></script>
+    <script src='/theme/piluku/assets/js/jquery.accordion.js'></script>
+    <script src='/theme/piluku/assets/js/materialize.js'></script>
+    <script src='/theme/piluku/assets/js/core.js'></script>
+
+    <script src="/theme/piluku/assets/js/jquery.countTo.js"></script>
+</body>
+
+</html>
