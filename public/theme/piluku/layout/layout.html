@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
     <title>AwesomeCI</title>
     <link rel='stylesheet' href='/libs/bootstrap/dist/css/bootstrap.min.css'>
-    <link rel='stylesheet' href='/libs/materialize/dist/css/materialize.min.css'>
     <link rel='stylesheet' href='/libs/angular-loading-bar/build/loading-bar.min.css'>
 
     <link rel='stylesheet' href='/theme/piluku/assets/css/style.css'>
@@ -43,7 +42,8 @@
                         <i class="chevron ti-angle-right"></i>
                     </a>
                     <ul class="list-unstyled">
-                        <li ng-repeat="job in jobs"><a href="/#/jobs/{{job.name}}">{{job.name}}</a></li>
+                        <li ng-repeat="job in jobs"><a href="/#/job/{{job.name}}">{{job.name}}</a></li>
+                        <li><a href="/#/create/job" style="color: green;">New Job</a></li>
                     </ul>
                 </li>
                 <li class="submenu">
@@ -187,7 +187,6 @@
 
     <script src='/theme/piluku/assets/js/jquery.loadmask.min.js'></script>
     <script src='/theme/piluku/assets/js/jquery.accordion.js'></script>
-    <script src='/theme/piluku/assets/js/materialize.js'></script>
     <script src='/theme/piluku/assets/js/core.js'></script>
 
     <script src="/theme/piluku/assets/js/jquery.countTo.js"></script>

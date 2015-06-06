@@ -48,7 +48,7 @@ angular.module('AwesomeCI', ['ngRoute', 'angular-loading-bar', 'ngAnimate', 'ngS
         templateUrl: 'html/dashboard.html',
         controller: 'DashboardController'
     })
-    .when('/jobs/:job', {
+    .when('/job/:job', {
         templateUrl: 'html/job.html',
         controller: 'JobController'
     })

@@ -21,9 +21,11 @@
   },
   "homepage": "https://github.com/RyanCopley/AwesomeCI#readme",
   "dependencies": {
+    "awesome-ghprb": "0.0.4",
     "bluebird": "^2.9.27",
     "body-parser": "^1.12.4",
     "express": "^4.12.4",
+    "lodash": "^3.9.3",
     "orm": "^2.1.26",
     "sqlite3": "^3.0.8"
   }

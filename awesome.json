@@ -1,5 +1,8 @@
 {
     "theme" : "piluku",
+    "plugins" : [
+        "awesome-ghprb"
+    ],
     "db" : {
         "connection" : "sqlite://db.sqlite"
     },

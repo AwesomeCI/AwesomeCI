@@ -4,13 +4,43 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var path = require('path');
 var fs = require("fs");
-var config = JSON.parse(fs.readFileSync("./awesome.json"));
-var app = express();
 var orm = require("orm");
+var _ = require("lodash");
+
+var app = express();
+var config = JSON.parse(fs.readFileSync("./awesome.json"));
+config.plugins = _.uniq(config.plugins);
+
 
 app.enable('trust proxy');
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'public')));
+
+var activePlugins = [];
+
+
+for (var pluginIndex in config.plugins) {
+    var pluginName = config.plugins[pluginIndex];
+    console.log("Initializing Plugin: "+pluginName);
+    
+    //Initialize plugin
+    var PluginClass = require(pluginName);
+    var plugin = new PluginClass();
+    activePlugins.push({
+        type : pluginName,
+        class : PluginClass,
+        instance : plugin
+    })
+    var pluginSlug = plugin.slug();
+    if (typeof pluginSlug === 'string' && pluginSlug.length > 3){
+        //Install plugin routes
+        var pluginRouter = express.Router();
+        plugin.router(pluginRouter);
+        app.use("/"+pluginSlug, pluginRouter);
+    }else{
+        console.log("Unable to install routes for: "+pluginName);
+    }
+}
 
 app.use(orm.express(config.db.connection, {
     define: function (db, models, next) {
@@ -61,7 +91,7 @@ app.get("/job/:jobName", function (req, res){
         }
         if (jobs.length > 0){
             var job = jobs[0];
-            req.models.build.find({ job : job.id }).limit(5).run(function (err, builds){
+            req.models.build.find({ job : job.id }).limit(5).order("-id").run(function (err, builds){
 
                 res.json({
                     error : false,
